@@ -1,50 +1,100 @@
 # BBM in a Box
 
-Standalone, shareable skills and agents built by Antigravity for the Brand Building Machine (BBM) ecosystem — and for anyone using Claude Code who wants battle-tested workflows.
+An AI-powered workspace template for running your business with [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Clone this repo, answer a few onboarding questions, and you have a fully configured command center for writing emails, building landing pages, researching your market, and more.
 
-Every asset here is designed to work **out of the box** in any environment. No proprietary folder structure, no internal dependencies. Just drop a skill into your Claude setup and go.
+Built by [Antigravity](https://antigravity.co) as part of the [Brand Building Machine](https://bbm.co) ecosystem.
 
 ---
 
 ## What's Inside
 
-### Skills
+```
+/                       # Root — keep clean
+├── CLAUDE.md           # Claude Code workspace instructions
+├── GEMINI.md           # Gemini workspace instructions
+├── ONBOARDING.md       # Interactive setup script (runs once)
+├── .env                # API keys (you create this)
+├── .tmp/               # Scratch space
+├── .claude/
+│   └── skills/         # Installed skills (auto-loaded by Claude)
+└── active/
+    ├── BRAND.md        # Your brand profile (filled during onboarding)
+    ├── clients/        # Client projects and assets
+    ├── content/        # Content drafts, scripts, copy
+    └── websites/       # Web builds and landing pages
+```
+
+---
+
+## Quick Start
+
+1. Clone this repo
+2. Open the folder in Claude Code
+3. Tell Claude: "Run the onboarding" or paste the contents of `ONBOARDING.md`
+4. Answer the setup questions (one at a time — it only takes a few minutes)
+5. Start working. Ask Claude to write emails, research your audience, build a landing page, or anything else your business needs.
+
+---
+
+## Included Skills
+
+Skills are pre-built workflows that Claude loads automatically when relevant. They live in `.claude/skills/`.
 
 | Skill | What It Does |
+|-------|--------------|
+| `email-sequences` | Write high-converting email sequences using direct-response copywriting frameworks. Covers lead magnet delivery, welcome/nurture, sales conversion, and educational email courses. |
+| `deep-researching` | Conduct comprehensive audience and market research using multiple AI APIs, then synthesize findings into reports and copywriting briefs. |
+| `lead-magnet-creator` | Create high-converting lead magnets, opt-in freebies, checklists, and downloadable resources. |
+| `website-copywriting-creation` | Create new high-converting landing page copy from scratch, from wireframing to final delivery. |
+| `website-copywriting-analysis` | Analyze existing landing pages and sales copy to reverse-engineer their structure and effectiveness. |
+| `brainstorming` | Structured exploration of ideas, requirements, and design before implementation. |
+| `planning` | Create detailed, step-by-step implementation plans from specs or requirements. |
+| `brand-identity` | Source of truth for brand guidelines, design tokens, and voice/tone. |
+| `ui-ux-pro-max` | UI/UX design intelligence with style presets, palettes, font pairings, and layout patterns. |
+
+### Optional Skills (Require Additional Setup)
+
+Some skills require external API keys or services:
+
+| Skill | Requirement |
 |-------|-------------|
-| `skills/email-sequences` | Write high-converting email sequences using direct-response copywriting frameworks. Covers lead magnet delivery, welcome/nurture, sales conversion, and educational email courses (EEC). |
+| `optional/scrape-instagram` | Apify API key |
+| `optional/scrape-tiktok` | Apify API key |
+| `optional/scrape-youtube` | Apify API key |
+| `deep-researching` | API keys for Perplexity, Gemini, and/or other research providers |
+
+Add any required keys to your `.env` file.
 
 ---
 
-## How to Use a Skill
+## How Skills Work
 
-Skills are designed for [Claude Code](https://claude.ai/code) with the Superpowers plugin installed.
+Each skill follows a standard format:
 
-1. Copy the skill folder into your Claude skills directory (typically `~/.claude/skills/` or wherever your setup points)
-2. The skill will auto-load and trigger when relevant
-3. Claude will ask you for any context it needs — no special folder structure required
-
----
-
-## How Skills Are Built
-
-Each skill follows the Superpowers skill format:
 - `SKILL.md` — Instructions and frameworks loaded into context when the skill triggers
 - `references/` — Supporting docs loaded on demand (keeps the main file lean)
 - No external dependencies, no hardcoded paths
+
+Skills activate automatically based on what you ask Claude to do. You can also browse available skills by asking Claude: "What skills do I have?"
+
+---
+
+## Adding Your Own Skills
+
+Drop any skill folder into `.claude/skills/` with a `SKILL.md` file. Claude will pick it up automatically. Each skill should:
+
+- Work without any specific folder structure assumptions
+- Ask the user for any required inputs conversationally
+- Include a clear description of what it does
 
 ---
 
 ## What BBM Is
 
-[Brand Building Machine](https://bbm.co) is an AI-first growth ecosystem for small business owners. BBM in a Box is the open-source complement — the workflows and tools we actually use, packaged for anyone to run.
+[Brand Building Machine](https://bbm.co) is an AI-first growth ecosystem for small business owners. BBM in a Box is the open-source companion — the same workflows and tools we use with clients, packaged for anyone to run independently with Claude Code.
 
 ---
 
-## Contributing
+## License
 
-Each skill or agent added here should:
-- Work without any specific folder structure or environment assumptions
-- Ask the user for any required inputs conversationally
-- Include a clear description of what it does and when to use it
-- Have no fabricated content (placeholders clearly marked)
+MIT
