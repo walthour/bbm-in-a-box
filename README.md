@@ -51,6 +51,7 @@ Skills are pre-built workflows that Claude loads automatically when relevant. Th
 | `planning` | Create detailed, step-by-step implementation plans from specs or requirements. |
 | `brand-identity` | Source of truth for brand guidelines, design tokens, and voice/tone. |
 | `ui-ux-pro-max` | UI/UX design intelligence with style presets, palettes, font pairings, and layout patterns. |
+| `publish-to-github-vercel` | End-to-end workflow for pushing a web project to GitHub and deploying it live on Vercel. Covers static-asset setup, env vars, SPA routing, and common gotchas. |
 
 ### Optional Skills (Require Additional Setup)
 
