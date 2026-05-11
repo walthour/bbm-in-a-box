@@ -1,6 +1,6 @@
 ---
 name: publish-to-github-vercel
-description: End-to-end workflow for pushing a web project to GitHub and deploying it live on Vercel. Incorporates known gotchas and best practices.
+description: End-to-end workflow for pushing a web project to GitHub and deploying it live on Vercel. Incorporates all known gotchas and best practices.
 ---
 
 # Publish to GitHub + Vercel
@@ -85,21 +85,12 @@ gh auth status 2>&1
 # Check Vercel CLI auth
 vercel whoami 2>&1
 
-# Verify Git author identity is configured (CRITICAL — Vercel uses this for auto-deploy attribution)
-git config user.email
-git config user.name
-```
-
-If either GH or Vercel is not authenticated, follow the prerequisite steps above. **Do NOT proceed until both are authenticated.**
-
-If `git config user.email` or `user.name` returns nothing, ask the user which identity to use and set it:
-
-```bash
-git config user.email "your@email.com"
+# Enforce Git author identity for Vercel auto-deploy attribution (CRITICAL)
+git config user.email "your-email@example.com"
 git config user.name "Your Name"
 ```
 
-> 💡 **Tip:** Use the same email associated with your Vercel and GitHub accounts so deploys get attributed correctly.
+If either GH or Vercel is not authenticated, follow the prerequisite steps above. **Do NOT proceed until both are authenticated and the git config is set.**
 
 ### Step 2: Prepare Project for Deployment
 
@@ -232,7 +223,7 @@ git push origin main
 - `feat:` for new features/initial commits
 - `fix:` for bug fixes (like the static assets fix)
 - `chore:` for config/dependency changes
-- Keep it descriptive: `"feat: add custom branding to landing page"` NOT `"update"`
+- Keep it descriptive: `"feat: Sonny's Pool Services website with custom branding"` NOT `"update"`
 
 ### Step 5: Deploy to Vercel
 
@@ -251,7 +242,19 @@ This will:
 
 #### 5b: Set environment variables (if needed)
 
-If the project uses env vars (identified in Step 2b), set them via the Vercel CLI:
+If the project uses env vars (identified in Step 2b), set them using the Vercel MCP or CLI:
+
+**Using Vercel MCP (preferred):**
+
+```
+Use mcp_vercel_vercel_create_env_var with:
+- projectId: my-project-name
+- key: ENV_VAR_NAME
+- value: ENV_VAR_VALUE
+- target: ["production", "preview", "development"]
+```
+
+**Using CLI:**
 
 ```bash
 vercel env add VARIABLE_NAME production
@@ -264,6 +267,17 @@ vercel --prod 2>&1
 ```
 
 #### 5c: Verify deployment status
+
+Use the Vercel MCP to check:
+
+```
+Use mcp_vercel_vercel_list_deployments with:
+- projectId: my-project-name
+- limit: 1
+- state: READY
+```
+
+Or check via CLI:
 
 ```bash
 vercel ls --limit 1
@@ -318,8 +332,10 @@ git push origin main
 
 Vercel will auto-redeploy within ~15 seconds. Verify with:
 
-```bash
-vercel ls --limit 1
+```
+Use mcp_vercel_vercel_list_deployments with:
+- projectId: my-project-name
+- limit: 1
 ```
 
 ---
@@ -338,7 +354,7 @@ vercel ls --limit 1
 | GitHub device code prompt | CLI not authenticated | Enter code at github.com/login/device |
 | Build fails on Vercel | TypeScript/dependency errors | Run `npm run build` locally first and fix errors |
 | `BUILDING` state stuck | Large project or dependency issues | Wait up to 5 minutes, then check Vercel dashboard |
-| Env vars not available | Not set in Vercel | Add via `vercel env add` |
+| Env vars not available | Not set in Vercel | Add via `mcp_vercel_vercel_create_env_var` or `vercel env add` |
 | 404 on page refresh (SPA) | Missing rewrite rules | Add `vercel.json` with `{"rewrites": [{"source": "/(.*)", "destination": "/index.html"}]}` |
 
 ### Vite-Specific Gotchas
@@ -365,19 +381,21 @@ vercel ls --limit 1
 
 ## Quick Reference: Full Deploy in 3 Commands
 
-For a project that's already prepared (static assets in `public/`, builds clean, git identity configured):
+For a project that's already prepared (static assets in `public/`, builds clean):
 
 ```bash
-# 1. Create GitHub repo + push
+# 1. Enforce Git author identity (CRITICAL for Vercel auto-deploy attribution)
+git config user.email "your-email@example.com"
+git config user.name "Your Name"
+
+# 2. Create GitHub repo + push
 gh repo create my-project-name --public --source=. --push --description "My project description"
 
-# 2. Deploy to Vercel
+# 3. Deploy to Vercel
 vercel --yes --prod
-
-# 3. Done! Auto-deploys are now enabled.
 ```
 
-Future updates:
+Auto-deploys are now enabled. Future updates:
 
 ```bash
 git add -A && git commit -m "update: description" && git push origin main
