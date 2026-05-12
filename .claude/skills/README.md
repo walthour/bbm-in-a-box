@@ -6,29 +6,16 @@ Bundled, reusable capabilities Claude loads automatically when relevant. Each sk
 
 | Skill | Description |
 |-------|-------------|
-| `brand-identity/` | Source of truth for brand guidelines, design tokens, and voice/tone. |
-| `brainstorming/` | Structured exploration of ideas, requirements, and design before implementation. |
-| `planning/` | Create detailed, step-by-step implementation plans from specs or requirements. |
 | `dashboard-design/` | Build production-grade data dashboard web apps that are calm, clear, fast, and data-first. |
-| `deep-researching/` | Comprehensive audience and market research synthesized into reports and copywriting briefs. |
 | `email-sequences/` | Write high-converting email sequences using direct-response copywriting frameworks. |
 | `lead-magnet-creator/` | Create high-converting lead magnets, opt-in freebies, checklists, and downloadable resources. |
+| `publish-website/` | End-to-end workflow for publishing a web project live — pushes to GitHub and deploys to Vercel in one flow. |
 | `scroll-stop-prompter/` | Generate AI image/video prompts for scroll-stopping content. |
-| `tech-github-sync/` | Safe sync for any shared Git repository. Stages untracked files before destructive ops. |
-| `tech-publish-to-github-vercel/` | End-to-end workflow for pushing a web project to GitHub and deploying live on Vercel. |
 | `ui-ux-pro-max/` | UI/UX design intelligence: styles, palettes, font pairings, charts, layout patterns. |
 | `website-copywriting-analysis/` | Analyze existing landing pages and sales copy to reverse-engineer structure and effectiveness. |
 | `website-copywriting-creation/` | Create new high-converting landing page copy from scratch. |
 
-### Optional skills (require API keys)
-
-| Skill | Requirement |
-|-------|-------------|
-| `optional/scrape-instagram/` | Apify API key |
-| `optional/scrape-tiktok/` | Apify API key |
-| `optional/scrape-youtube/` | Apify API key |
-
-Add required keys to your workspace `.env` file.
+> Brainstorming, planning, executing plans, debugging, TDD, code review, and other process skills come from the **Superpowers plugin** — see the root README for install instructions.
 
 ## Adding your own skill
 

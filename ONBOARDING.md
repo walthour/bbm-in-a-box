@@ -7,7 +7,20 @@ When a user opens this workspace for the first time and runs `/onboarding` or as
 1. **Welcome the user.** Say:
    > "Welcome to your Business Command Center. Let's get your workspace set up. I'll ask you a few questions one at a time, then populate your brand profile and adapt the workspace to you."
 
-2. **Ask the following questions ONE AT A TIME.** Wait for each answer before asking the next question. Do not present multiple questions at once.
+2. **Check that the Superpowers plugin is installed.** This workspace relies on Anthropic's official Superpowers plugin (brainstorming, planning, executing plans, debugging, TDD, code review). Ask:
+
+   > "Before we start, have you installed the Superpowers plugin yet? If not, I'll walk you through it — it's a one-time setup that takes about 30 seconds."
+
+   If they say no, give them these exact steps to run inside Claude Code:
+
+   ```
+   /plugin marketplace add obra/superpowers-marketplace
+   /plugin install superpowers@superpowers-marketplace
+   ```
+
+   Then ask them to restart Claude Code and re-run `/onboarding`. Do not proceed until Superpowers is installed.
+
+3. **Ask the following questions ONE AT A TIME.** Wait for each answer before asking the next question. Do not present multiple questions at once.
 
    a. "What is your business name?"
    b. "What does your business do? (1-2 sentences is perfect.)"
@@ -20,15 +33,15 @@ When a user opens this workspace for the first time and runs `/onboarding` or as
    i. "What email platform do you use? (e.g., Mailchimp, ConvertKit, Klaviyo, ActiveCampaign — type 'skip' if none.)"
    j. "Do you do client work? (yes/no — this just affects whether the `active/clients/` folder is highlighted in your CLAUDE.md or pruned out.)"
 
-3. **Populate `BRAND.md`** at the workspace root with their answers, replacing all placeholder text.
+4. **Populate `BRAND.md`** at the workspace root with their answers, replacing all placeholder text.
 
-4. **Update `CLAUDE.md`** — replace the title "Your Business Command Center" at the top with their business name followed by "Command Center" (e.g., "Acme Co Command Center").
+5. **Update `CLAUDE.md`** — replace the title "Your Business Command Center" at the top with their business name followed by "Command Center" (e.g., "Acme Co Command Center").
 
-5. **Update `memory/current/current-strategy.md`** with a 2-3 sentence summary of what they said they're focused on, so the file isn't empty on day one.
+6. **Update `memory/current/current-strategy.md`** with a 2-3 sentence summary of what they said they're focused on, so the file isn't empty on day one.
 
-6. **Move this file** (`ONBOARDING.md`) to `.tmp/onboarding-completed.md` so it doesn't re-trigger.
+7. **Move this file** (`ONBOARDING.md`) to `.tmp/onboarding-completed.md` so it doesn't re-trigger.
 
-7. **Print a summary** that confirms:
+8. **Print a summary** that confirms:
    - `BRAND.md` has been populated
    - `CLAUDE.md` has been updated with the business name
    - `memory/current/current-strategy.md` has a starting note

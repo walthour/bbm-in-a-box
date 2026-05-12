@@ -1,6 +1,6 @@
 ---
-name: publish-to-github-vercel
-description: End-to-end workflow for pushing a web project to GitHub and deploying it live on Vercel. Incorporates all known gotchas and best practices.
+name: publish-website
+description: End-to-end workflow for taking a local web project and publishing it live on the internet. Pushes the project to GitHub and deploys it to Vercel in one flow. Use when the user asks to "publish", "deploy", "make live", "go live", "push to live", "host this", or "put this online" — for websites, landing pages, or any web app.
 ---
 
 # Publish to GitHub + Vercel

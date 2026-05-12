@@ -45,9 +45,29 @@ Built by [Brand Building Machine](https://bbm.co) and shipped as an open-source 
 
 1. **Clone this repo** somewhere on disk.
 2. **Open the folder in Claude Code** (`cd` into it, then run `claude`).
-3. Tell Claude: **"Run the onboarding"** — or paste the contents of `ONBOARDING.md`.
-4. Answer the setup questions one at a time (takes a few minutes).
-5. Start working. Ask Claude to write emails, research your audience, build a landing page, set up a new client folder, or anything else your business needs.
+3. **Install the Superpowers plugin** (one-time, user-level — see [Required Plugin](#required-plugin-superpowers) below).
+4. Tell Claude: **"Run the onboarding"** — or paste the contents of `ONBOARDING.md`.
+5. Answer the setup questions one at a time (takes a few minutes).
+6. Start working. Ask Claude to write emails, research your audience, build a landing page, set up a new client folder, or anything else your business needs.
+
+---
+
+## Required Plugin: Superpowers
+
+This workspace expects the official **Superpowers** plugin to be installed at the user level. Superpowers gives Claude essential workflow skills — brainstorming, planning, executing plans, debugging, TDD, code review, and more — that the bundled skills below build on top of.
+
+**Install it once in Claude Code:**
+
+```
+/plugin marketplace add obra/superpowers-marketplace
+/plugin install superpowers@superpowers-marketplace
+```
+
+After installing, restart Claude Code. You should then see skills like `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:executing-plans`, `superpowers:systematic-debugging`, and `superpowers:test-driven-development` available.
+
+The Superpowers plugin is built by Jesse Vincent ([@obra](https://github.com/obra)). Source and docs:
+- Main repo: https://github.com/obra/superpowers
+- Marketplace: https://github.com/obra/superpowers-marketplace
 
 ---
 
@@ -72,32 +92,16 @@ Skills are pre-built workflows that Claude loads automatically when relevant. Th
 
 | Skill | What It Does |
 |-------|--------------|
-| `brand-identity` | Source of truth for brand guidelines, design tokens, and voice/tone. |
-| `brainstorming` | Structured exploration of ideas, requirements, and design before implementation. |
-| `planning` | Create detailed, step-by-step implementation plans from specs or requirements. |
 | `dashboard-design` | Build production-grade data dashboard web apps that are calm, clear, fast, and data-first. |
-| `deep-researching` | Conduct comprehensive audience and market research, then synthesize into reports and copywriting briefs. |
 | `email-sequences` | Write high-converting email sequences using direct-response copywriting frameworks. |
 | `lead-magnet-creator` | Create high-converting lead magnets, opt-in freebies, checklists, and downloadable resources. |
 | `scroll-stop-prompter` | Generate AI image/video prompts for scroll-stopping content — clean shot, exploded view, transition video. |
-| `tech-github-sync` | Safe sync workflow for shared Git repos. Stages untracked files before destructive ops; applies per-repo merge rules. |
-| `tech-publish-to-github-vercel` | End-to-end workflow for pushing a web project to GitHub and deploying live on Vercel. |
+| `publish-website` | End-to-end workflow for publishing a web project live — pushes to GitHub and deploys to Vercel in one flow. |
 | `ui-ux-pro-max` | UI/UX design intelligence with style presets, palettes, font pairings, charts, and layout patterns. |
 | `website-copywriting-analysis` | Analyze existing landing pages and sales copy to reverse-engineer their structure and effectiveness. |
 | `website-copywriting-creation` | Create new high-converting landing page copy from scratch, from wireframing to final delivery. |
 
-### Optional Skills (Require Additional Setup)
-
-Some skills require external API keys or services:
-
-| Skill | Requirement |
-|-------|-------------|
-| `optional/scrape-instagram` | Apify API key |
-| `optional/scrape-tiktok` | Apify API key |
-| `optional/scrape-youtube` | Apify API key |
-| `deep-researching` | API keys for Perplexity, Gemini, and/or other research providers |
-
-Add any required keys to your `.env` file.
+> Brainstorming, planning, debugging, TDD, code review, and other process skills come from the **Superpowers plugin** (see [Required Plugin](#required-plugin-superpowers) above), not bundled here.
 
 ---
 
