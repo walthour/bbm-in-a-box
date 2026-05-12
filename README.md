@@ -43,31 +43,17 @@ Built by [Brand Building Machine](https://bbm.co) and shipped as an open-source 
 
 ## Quick Start
 
-1. **Clone this repo** somewhere on disk.
-2. **Open the folder in Claude Code** (`cd` into it, then run `claude`).
-3. **Install the Superpowers plugin** (one-time, user-level — see [Required Plugin](#required-plugin-superpowers) below).
-4. Tell Claude: **"Run the onboarding"** — or paste the contents of `ONBOARDING.md`.
-5. Answer the setup questions one at a time (takes a few minutes).
-6. Start working. Ask Claude to write emails, research your audience, build a landing page, set up a new client folder, or anything else your business needs.
+Open **[`ONBOARDING.md`](ONBOARDING.md)** and follow it. It walks you through everything — installing the macOS prerequisites in Terminal (about 30 minutes, mostly waiting), then setting up the workspace inside Claude Code Desktop with one master prompt.
+
+When you're done with onboarding, your workspace is ready. Start asking Claude to write emails, research your audience, build a landing page, set up client folders, or anything else your business needs.
 
 ---
 
-## Required Plugin: Superpowers
+## Required Skill Library: Superpowers
 
-This workspace expects the official **Superpowers** plugin to be installed at the user level. Superpowers gives Claude essential workflow skills — brainstorming, planning, executing plans, debugging, TDD, code review, and more — that the bundled skills below build on top of.
+This workspace uses the **Superpowers** skill library (brainstorming, planning, executing plans, debugging, TDD, code review). Superpowers is installed automatically during onboarding by copying its `skills/` folder into your workspace's `.claude/skills/` directory — no plugin marketplace required.
 
-**Install it once in Claude Code:**
-
-```
-/plugin marketplace add obra/superpowers-marketplace
-/plugin install superpowers@superpowers-marketplace
-```
-
-After installing, restart Claude Code. You should then see skills like `superpowers:brainstorming`, `superpowers:writing-plans`, `superpowers:executing-plans`, `superpowers:systematic-debugging`, and `superpowers:test-driven-development` available.
-
-The Superpowers plugin is built by Jesse Vincent ([@obra](https://github.com/obra)). Source and docs:
-- Main repo: https://github.com/obra/superpowers
-- Marketplace: https://github.com/obra/superpowers-marketplace
+Superpowers is built by Jesse Vincent ([@obra](https://github.com/obra)): https://github.com/obra/superpowers
 
 ---
 
