@@ -43,7 +43,11 @@ Built by [Brand Building Machine](https://bbm.co) and shipped as an open-source 
 
 ## Quick Start
 
-Open **[`ONBOARDING.md`](ONBOARDING.md)** and follow it. It walks you through everything — installing the macOS prerequisites in Terminal (about 30 minutes, mostly waiting), then setting up the workspace inside Claude Code Desktop with one master prompt.
+Pick the path that matches your situation:
+
+- **Fresh setup** (no existing Claude Code workspace) → open **[`ONBOARDING.md`](ONBOARDING.md)**. It walks you through everything: installing the macOS prerequisites in Terminal (about 30 minutes, mostly waiting), then setting up the workspace inside Claude Code Desktop with one master prompt.
+
+- **Existing Claude Code workspace** (you've already got skills, clients, code, or memory you don't want to lose) → open **[`EXISTING-WORKSPACE-ONBOARDING.md`](EXISTING-WORKSPACE-ONBOARDING.md)**. It backs up your current setup, inventories what you have, then rebuilds your workspace on the bbm-in-a-box layout in a sibling folder so nothing is lost.
 
 When you're done with onboarding, your workspace is ready. Start asking Claude to write emails, research your audience, build a landing page, set up client folders, or anything else your business needs.
 
